@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Втеча з космічної станції</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500&family=Oxanium:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="hazard" aria-hidden="true"></div>
+
+  <header class="hero">
+    <p class="status">Станція пошкоджена. Живлення нестабільне.</p>
+    <h1>Втеча з космічної станції</h1>
+    <p class="lead">Текстова гра-квест. Ти прокидаєшся на мертвій станції, а до рятувального корабля ще шість випробувань. Кожне рішення змінює те, що ти матимеш наприкінці.</p>
+    <a class="btn" href="#game">Перейти до гри</a>
+  </header>
+
+  <main>
+
+    <section class="block" id="game">
+      <h2>Гра</h2>
+      <div class="game">
+
+        <div class="terminal">
+          <div id="log" class="log" role="log" aria-live="polite"></div>
+
+          <div class="controls">
+            <form id="answer-form" class="answer-form" hidden>
+              <div id="options" class="options"></div>
+              <div class="row">
+                <label class="sr-only" for="answer">Твоя відповідь</label>
+                <input id="answer" type="text" autocomplete="off" required>
+                <button class="btn btn-small" type="submit">Відповісти</button>
+              </div>
+            </form>
+            <button id="restart" class="btn" type="button" hidden>Зіграти ще раз</button>
+          </div>
+        </div>
+
+        <aside class="panel" aria-label="Стан героя">
+          <h3>Герой</h3>
+          <dl class="hero-info">
+            <div><dt>Ім'я</dt><dd id="hero-name">—</dd></div>
+            <div><dt>Спеціалізація</dt><dd id="hero-class">—</dd></div>
+          </dl>
+          <h3>Інвентар</h3>
+          <ul class="items">
+            <li data-item="shield"><span class="dot"></span>Щит</li>
+            <li data-item="potion"><span class="dot"></span>Аптечка</li>
+            <li data-item="treasure"><span class="dot"></span>Цінний вантаж</li>
+            <li data-item="key"><span class="dot"></span>Ключ</li>
+          </ul>
+        </aside>
+
+      </div>
+    </section>
+
+    <section class="block" id="story">
+      <h2>Сюжет</h2>
+      <p>Твій герой опиняється на космічній станції, яка зазнала серйозних пошкоджень. Головна мета одна: втекти. Дорогою він зустріне пастки, ворожих роботів, заміновані контейнери та сейфи із загадками. Вижити допоможуть спорядження, кмітливість і трохи везіння.</p>
+    </section>
+
+    <section class="block" id="classes">
+      <h2>Спеціалізації</h2>
+      <p>На початку гри обираєш одну зі спеціалізацій. Від неї залежить стартове спорядження.</p>
+      <div class="classes">
+        <article class="class">
+          <h3>Космодесантник</h3>
+          <p>Починає з аптечкою. Вона рятує від смерті один раз. Сильний у бою з роботом.</p>
+        </article>
+        <article class="class">
+          <h3>Інженер</h3>
+          <p>Починає з енергетичним щитом. Він поглинає один удар або вибух.</p>
+        </article>
+        <article class="class">
+          <h3>Кібернетик</h3>
+          <p>Без предметів, але з розумом. Може домовлятися з роботами та розміновувати скрині.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="block" id="route">
+      <h2>Маршрут</h2>
+      <ol class="route">
+        <li>
+          <h3>Розвилка</h3>
+          <p>Темний технічний тунель, коридор із лазерною пасткою або житловий модуль із роботом-провідником.</p>
+        </li>
+        <li>
+          <h3>Зустріч у тунелі</h3>
+          <p>Бойовий робот. Можна битися, тікати або вести переговори.</p>
+        </li>
+        <li>
+          <h3>Три контейнери</h3>
+          <p>Золотий, срібний і дерев'яний. Один із них замінований, в іншому лежить карта доступу.</p>
+        </li>
+        <li>
+          <h3>Комп'ютерний сейф</h3>
+          <p>Загадка і три спроби. Не вгадаєш: спрацює сигналізація і ключ заблокується.</p>
+        </li>
+        <li>
+          <h3>Три шлюзи</h3>
+          <p>Червоний, зелений і синій. Безпечний шлях, пастка або невідомість.</p>
+        </li>
+        <li>
+          <h3>Рятувальний корабель</h3>
+          <p>Фінал залежить від того, що герой приніс із собою.</p>
+        </li>
+      </ol>
+    </section>
+
+    <section class="block" id="endings">
+      <h2>Фінали</h2>
+      <dl class="endings">
+        <div>
+          <dt>Легенда галактики</dt>
+          <dd>Дійшов із ключем і цінним вантажем.</dd>
+        </div>
+        <div>
+          <dt>Рятівник</dt>
+          <dd>Дійшов із ключем, але без вантажу.</dd>
+        </div>
+        <div>
+          <dt>Космічний багатий</dt>
+          <dd>Дійшов із вантажем, але без ключа.</dd>
+        </div>
+        <div>
+          <dt>Останній рейс</dt>
+          <dd>Дійшов без нічого.</dd>
+        </div>
+        <div class="lost">
+          <dt>Загублений у космосі</dt>
+          <dd>Не вижив.</dd>
+        </div>
+      </dl>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>Втеча з космічної станції. Текстова гра на JavaScript.</p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
